@@ -44,7 +44,7 @@ quota_common_objects = \
 
 lib10_quota_plugin_la_SOURCES = $(quota_dist_sources)
 nodist_lib10_quota_plugin_la_SOURCES = $(RQUOTA_XDR)
-lib10_quota_plugin_la_LIBADD = $(QUOTA_LIBS)
+lib10_quota_plugin_la_LIBADD = $(QUOTA_LIBS) -ltirpc
 
 doveadm_module_LTLIBRARIES = \
 	lib10_doveadm_quota_plugin.la
@@ -59,7 +59,7 @@ quota_status_LDADD = \
 	$(quota_common_objects) \
 	$(LIBDOVECOT_STORAGE) \
 	$(LIBDOVECOT) \
-	$(QUOTA_LIBS)
+	$(QUOTA_LIBS) -ltirpc
 quota_status_DEPENDENCIES = \
 	$(quota_common_objects) \
 	$(LIBDOVECOT_STORAGE_DEPS) \
